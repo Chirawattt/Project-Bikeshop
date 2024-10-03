@@ -50,6 +50,11 @@
                     </td>
                 </tr>
                 <tr>
+                    <td class="text-right">{{ Form::label('branch_id', 'สาขา :') }}</td>
+                    <td>{{ Form::select('branch_id', $branches, Request::old('branch_id'), ['class' => 'form-control']) }}
+                    </td>
+                </tr>
+                <tr>
                     <td class="text-right">{{ Form::label('stock_qty', 'จำนวนสินค้าในสต็อก :') }}</td>
                     <td>{{ Form::text('stock_qty', $product->stock_qty, ['class' => 'form-control']) }}</td>
                 </tr>
