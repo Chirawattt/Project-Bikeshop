@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->string('order_number', 20);
             $table->string('customer_name', 50);
+            $table->string('customer_email', 50);
             $table->string('payment_status', 50);
             $table->timestamps();
         });
