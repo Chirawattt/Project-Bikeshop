@@ -58,6 +58,7 @@
                     <li><a href="#">{{ Auth::user()->name }}</a></li>
                     <li><a href="/product">ข้อมูลสินค้า</a></li>
                     <li><a href="/category">ประเภทสินค้า</a></li>
+                    <li><a href="/order">รายการสั่งซื้อ</a></li>
                     <li><a href="/logout">ออกจากระบบ</a></li>@endguest
                 </ul>
             </div>

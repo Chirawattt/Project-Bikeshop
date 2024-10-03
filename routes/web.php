@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\OrderController;
 use App\Models\Order_Detail;
 // Import Auth Facade
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +54,10 @@ Route::get('/cart/update/{id}/{qty}', [CartController::class, 'updateCart']);
 Route::get('/cart/checkout', [CartController::class, 'checkout']);
 Route::get('/cart/complete', [CartController::class, 'complete']);
 Route::get('/cart/finish', [CartController::class, 'finish_order']);
+
+// Order
+Route::get('/order', [OrderController::class, 'index']);
+Route::get('/order/sendorder', [OrderController::class, 'sendorder']);
 
 // Order Detial
 Route::get('/order/index', [OrderDetailController::class, 'index']);
