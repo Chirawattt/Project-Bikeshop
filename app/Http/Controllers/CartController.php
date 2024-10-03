@@ -1,4 +1,5 @@
 <?php
+//comment for more information
 
 namespace App\Http\Controllers;
 
@@ -10,7 +11,7 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
-    //
+    // hello world 1
     public function viewCart() {
         $cart_items = Session::get('cart_items');
         if(is_null($cart_items)) {
