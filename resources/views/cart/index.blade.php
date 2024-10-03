@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('title', 'ตะกร้าสินค้า')
 @section('content')
-
     <div class="container">
         <h1 class="text-center">สินค้าในตะกร้า</h1>
         <div class="breadcrumb">
@@ -31,7 +30,7 @@
                             <td>{{ $item['code'] }}</td>
                             <td>{{ $item['name'] }}</td>
                             <td><input type="text" class="form-control" value="{{ $item['qty']}}" onchange="updateCart({{ $item['id']}}, this)"></td>
-                            <td>{{ number_format(($item['price'] * $item['qty']),2) }}</td>
+                            <td>{{ number_format(($item['price'] * $item['qty']),2)}}</td>
                             <td><a href="/cart/delete/{{$item['id']}}" onclick="return confirm('คุณต้องการลบสินค้า {{$item['name']}} ออกจากตะกร้าหรือไม่')" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
 
                         </tr>
@@ -59,7 +58,7 @@
             <a href="{{ URL::to('cart/checkout')}}" class="btn btn-primary">ชำระเงิน <i class="fa fa-chevron-right"></i></a>
         </div>
     </div>
-
+    {{-- hello phudon --}}
     <script>
         function updateCart(id, qty) {
             if(qty.value == "") {
