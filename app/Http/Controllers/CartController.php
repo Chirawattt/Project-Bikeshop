@@ -1,6 +1,6 @@
 <?php
 //comment for more information
-
+//comment for more information
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Session;
