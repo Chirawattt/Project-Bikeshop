@@ -10,7 +10,7 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
-    // hello world
+    // hello world 1
     public function viewCart() {
         $cart_items = Session::get('cart_items');
         if(is_null($cart_items)) {
