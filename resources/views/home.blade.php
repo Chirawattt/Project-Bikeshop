@@ -2,31 +2,12 @@
 @section('title', 'อุปกรณ์จักรยาน, อะไหล่, ชุดแข่ง, และอุปกรณ์ตกแต่ง')
 
 @section('content')
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="panel">
-                <div class="panel-heading">{{ __('Dashboard') }}</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
     <div class="row" ng-controller="ctrl">
         <div class="col-md-3">
             <h2 class="text-center">สินค้าในร้าน</h2>
             <div class="list-group" style="cursor: pointer">
                 <a class="list-group-item" ng-class="{'active': category == null }" ng-click="getProductList(null)">ทั้งหมด</a>
-                
+
                 <a class="list-group-item" ng-repeat="c in categories" ng-click="getProductList(c)"
                     ng-class="{'active': category.id == c.id }">@{c.name}</a>
             </div>
@@ -50,8 +31,9 @@
                             </div>
                             @guest
                             @else
-                            <a href="#" class="btn btn-success btn-block" ng-click="addToCart(p)"><i class="fa fa-shopping-cart">
-                                    หยิบใส่ตะกร้า</i></a>
+                                <a href="#" class="btn btn-success btn-block" ng-click="addToCart(p)"><i
+                                        class="fa fa-shopping-cart">
+                                        หยิบใส่ตะกร้า</i></a>
                             @endguest
                         </div>
                     </div>
@@ -79,7 +61,7 @@
                     category_id: category_id
                 });
             }
-            
+
         });
         // controller
         app.controller('ctrl', function($scope, productService) {
@@ -104,7 +86,7 @@
                 });
                 $scope.query = '';
             }
-            
+
             $scope.getCategoryList = function() {
                 productService.getCategoryList().then(function(res) {
                     if (!res.data.ok) {
@@ -122,7 +104,7 @@
                     }
                     $scope.products = res.data.products;
                     console.log($scope.products);
-                    
+
                 })
             }
             $scope.addToCart = function(p) {
@@ -135,43 +117,4 @@
             $scope.getCategoryList(); // call function to get category list
         });
     </script>
-
-
-
-    {{-- original before optimize --}}
-    {{-- <div class="container" ng-app="app" ng-controller="ctrl">
-        <h2 class="text-center">@{ helloMessage }</h2>
-        <input type="text" class="form-control" ng-model="helloMessage">
-        <br>
-        <br>
-        <br>
-        <input type="text" class="form-control" ng-model="query.name" placeholder="ค้นหาสินค้า . . .">
-        <table class="table table-bordered" ng-if="products.length">
-            <thead>
-                <tr>
-                    <th>รหัส</th>
-                    <th>ชื่อสินค้า</th>
-                    <th>ราคาขาย</th>
-                    <th>คงเหลือ</th>
-                    <th class="text-center">สถานะ</th>
-                </tr>
-            </thead>
-            <tr ng-repeat="p in products|filter:query">
-                <td>@{p.code}</td>
-                <td>@{p.name}</td>
-                <td>@{p.price|number:2}</td>
-                <td>@{p.stock_qty|number:0}</td>
-                <td align="center">
-                    <span ng-if="p.stock_qty > 0 && p.stock_qty < 5" class="label label-warning">สินค้าใกล้หมด</span>
-                    <span ng-if="p.stock_qty == 0" class="label label-danger">สินค้าหมด</span>
-                    {{-- another way by using ng-class --}}
-    {{-- <span ng-if="p.qty > 0 && p.qty < 5" ng-class="{'label label-warning': p.qty > 0 && p.qty < 5}">สินค้าใกล้หมด</span> --}}
-    {{-- <span ng-if="p.qty == 0" ng-class="{'label label-danger': p.qty == 0}">สินค้าหมด</span>
-                    
-                </td>
-            </tr>
-        </table>
-        <div class="alert alert-danger" role="alert" ng-if="!products.length"> ไม่พบข้อมูลสินค้า </div>
-    </div>
- --}}
 @endsection

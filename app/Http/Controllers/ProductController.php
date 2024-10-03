@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Branch;
 // paginate import
 
 class ProductController extends Controller
@@ -22,7 +23,6 @@ class ProductController extends Controller
         // get congif from app.php
         $this->rp = Config::get('app.result_per_page');
         $this->middleware('auth');
-
     }
 
     public function index()
@@ -48,23 +48,24 @@ class ProductController extends Controller
     public function edit($id = null)
     {
         $categories = Category::pluck('name', 'id')->prepend('เลือกรายการ', ''); // ใช้ pluck('value', 'key') สร้าง array ที่มี key และ value จากข้อมูลในตาราง
+        $branches = Branch::pluck('name', 'id')->prepend('เลือกรายการ', '');
         if ($id) { // edit view
             $product = Product::find($id);
             // prepend คือการเพิ่มค่าเข้าไปที่ตำแหน่งแรกของ array
             // result is ['' => 'เลือกรายการ', 1 => 'เสื้อ', 2 => 'กางเกง', 3 => 'รองเท้า']
-            return view('product/edit', compact('product', 'categories'));
+            return view('product/edit', compact('product', 'categories', 'branches'));
         } else { // add view
-            return view('product/add', compact('categories'));
+            return view('product/add', compact('categories', 'branches'));
         }
     }
 
     public function update(Request $request)
     {
-        $rule = ['code' => 'required', 'name' => 'required', 'category_id' => 'required|numeric', 'stock_qty' => 'required|numeric', 'price' => 'required|numeric'];
+        $rule = ['code' => 'required', 'name' => 'required', 'category_id' => 'required|numeric', 'branch_id' => 'required|numeric', 'stock_qty' => 'required|numeric', 'price' => 'required|numeric'];
         $message = ['required' => 'โปรดกรอกข้อมูล :attribute ให้ครบ ', 'numeric' => 'โปรดกรอกข้อมูล :attribute เป็นตัวเลข'];
-        $attributes = ['code' => 'รหัสสินค้า', 'name' => 'ชื่อสินค้า', 'category_id' => 'ประเภทสินค้า', 'price' => 'ราคาขายต่อหน่วย', 'stock_qty' => 'จำนวนสินค้าในสต็อก'];
+        $attributes = ['code' => 'รหัสสินค้า', 'name' => 'ชื่อสินค้า', 'category_id' => 'ประเภทสินค้า', 'branch_id' => 'สาขา', 'price' => 'ราคาขายต่อหน่วย', 'stock_qty' => 'จำนวนสินค้าในสต็อก'];
         $id = $request->id;
-        $temp = ['code' => $request->code, 'name' => $request->name, 'category_id' => $request->category_id, 'price' => $request->price, 'stock_qty' => $request->stock_qty];
+        $temp = ['code' => $request->code, 'name' => $request->name, 'category_id' => $request->category_id, 'branch_id' => $request->branch_id, 'price' => $request->price, 'stock_qty' => $request->stock_qty];
         $validator = Validator::make($temp, $rule, $message, $attributes);
         if ($validator->fails()) {
             return redirect('/product/edit/' . $id)->withErrors($validator)->withInput();
@@ -74,6 +75,7 @@ class ProductController extends Controller
             $product->code = $request->code;
             $product->name = $request->name;
             $product->category_id = $request->category_id;
+            $product->branch_id = $request->branch_id;
             $product->price = $request->price;
             $product->stock_qty = $request->stock_qty;
             $product->save();
@@ -100,10 +102,10 @@ class ProductController extends Controller
 
     public function insert(Request $request)
     {
-        $rule = ['code' => 'required|max:10', 'name' => 'required|max:50', 'category_id' => 'required|numeric', 'stock_qty' => 'required|numeric', 'price' => 'required|numeric'];
+        $rule = ['code' => 'required|max:10', 'name' => 'required|max:50', 'category_id' => 'required|numeric', 'branch_id' => 'required|numeric', 'stock_qty' => 'required|numeric', 'price' => 'required|numeric'];
         $message = ['required' => 'โปรดกรอกข้อมูล :attribute', 'numeric' => 'โปรดกรอกข้อมูล :attribute เป็นตัวเลข', 'max' => 'โปรดกรอกข้อมูล :attribute ไม่เกิน :max ตัวอักษร'];
-        $attributes = ['code' => 'รหัสสินค้า', 'name' => 'ชื่อสินค้า', 'category_id' => 'ประเภทสินค้า', 'price' => 'ราคาขายต่อหน่วย', 'stock_qty' => 'จำนวนสินค้าในสต็อก'];
-        $temp = ['code' => $request->code, 'name' => $request->name, 'category_id' => $request->category_id, 'price' => $request->price, 'stock_qty' => $request->stock_qty];
+        $attributes = ['code' => 'รหัสสินค้า', 'name' => 'ชื่อสินค้า', 'category_id' => 'ประเภทสินค้า', 'branch_id' => 'สาขา', 'price' => 'ราคาขายต่อหน่วย', 'stock_qty' => 'จำนวนสินค้าในสต็อก'];
+        $temp = ['code' => $request->code, 'name' => $request->name, 'category_id' => $request->category_id, 'branch_id' => $request->branch_id, 'price' => $request->price, 'stock_qty' => $request->stock_qty];
         $validator = Validator::make($temp, $rule, $message, $attributes);
 
         if ($validator->fails()) {
@@ -113,6 +115,7 @@ class ProductController extends Controller
             $product->code = $request->code;
             $product->name = $request->name;
             $product->category_id = $request->category_id;
+            $product->branch_id = $request->branch_id;
             $product->price = $request->price;
             $product->stock_qty = $request->stock_qty;
             $product->save();
