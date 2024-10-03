@@ -78,7 +78,25 @@
                             <li><a href="/logout">ออกจากระบบ</a></li>
                         @endif
                     @endauth
-
+                    <li><a href="/home">หน้าแรก</a></li>
+                    <li><a href="{{ route('login') }}">ล็อกอิน</a></li>
+                    <li><a href="{{ route('register')}}">ลงทะเบียน</a></li>
+                    @else
+                    <li><a href="/cart/view"> 
+                        <i class="fa fa-shopping-cart"></i> ตะกร้า
+                        <span class="label label-danger">
+                            @if (Session::has('cart_items'))
+                                {{ count(Session::get('cart_items')) }}
+                            @else
+                                {{ count([])}}
+                            @endif
+                        </span>
+                    </a></li>
+                    <li><a href="#">{{ Auth::user()->name }}</a></li>
+                    <li><a href="/product">ข้อมูลสินค้า</a></li>
+                    <li><a href="/category">ประเภทสินค้า</a></li>
+                    <li><a href="/order">รายการสั่งซื้อ</a></li>
+                    <li><a href="/logout">ออกจากระบบ</a></li>@endguest
                 </ul>
             </div>
         </div>

@@ -7,6 +7,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\OrderController;
+use App\Models\Order_Detail;
 // Import Auth Facade
 use Illuminate\Support\Facades\Auth;
 
@@ -56,6 +59,12 @@ Route::get('/cart/finish', [CartController::class, 'finish_order']);
 // User
 Route::get('/user', [UserController::class, 'index']);
 
+// Order
+Route::get('/order', [OrderController::class, 'index']);
+Route::get('/order/sendorder', [OrderController::class, 'sendorder']);
+
+// Order Detial
+Route::get('/order/index', [OrderDetailController::class, 'index']);
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
