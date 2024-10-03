@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers; 
+namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
-    //
+    // hello world 1
     public function viewCart() {
         $cart_items = Session::get('cart_items');
         if(is_null($cart_items)) {
