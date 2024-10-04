@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model {
     use HasFactory;
-    protected $table = 'order';
+    protected $table = 'orders';
 
     public function order_detail() {
         return $this->hasMany('App\Models\Order_Detail');
