@@ -13,7 +13,6 @@ class OrderController extends Controller
 {
     public function index() {
         $order = Order::paginate(5);
-
         return view('order/order',compact('order'));
     }
     
@@ -55,6 +54,6 @@ class OrderController extends Controller
         $datauser = Session::get('datauser');
         Session::remove('datauser');
 
-        return redirect('/');
+        return redirect()->route('createDetail', ['id' => $order->id]);
     }
 }
