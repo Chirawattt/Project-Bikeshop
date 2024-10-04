@@ -87,7 +87,7 @@
             "{{URL::to('/cart/complete')}}?cust_name="+ $('#cust_name').val() + '&cust_email='
             + $('#cust_email').val(),"_blank",
         );
-        window.location.href = "{{ URL::to('/cart/finish')}}"
+        window.location.href = "{{ URL::to('/order/test/1')}}"
     }
     </script>
 @stop

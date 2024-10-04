@@ -60,7 +60,9 @@ Route::get('/order', [OrderController::class, 'index']);
 Route::get('/order/sendorder', [OrderController::class, 'sendorder']);
 
 // Order Detial
-Route::get('/order/index', [OrderDetailController::class, 'index']);
+Route::get('/order/{id}', [OrderDetailController::class, 'displayDetail']);
+Route::get('/order/createDetail/{id}', [OrderDetailController::class, 'createOrderDetail']);
+Route::post('/order/updatepayment', [OrderDetailController::class, 'updatePaymentStatus']);
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
