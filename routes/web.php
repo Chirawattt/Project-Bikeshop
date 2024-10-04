@@ -64,8 +64,9 @@ Route::get('/order', [OrderController::class, 'index']);
 Route::get('/order/sendorder', [OrderController::class, 'sendorder']);
 
 // Order Detial
-Route::get('/order/{id}', [OrderDetailController::class, 'displayDetail']);
-Route::get('/order/createDetail/{id}', [OrderDetailController::class, 'createOrderDetail']);
+Route::get('/order/{order_number}', [OrderDetailController::class, 'displayDetail']);
+// Route::get('/order/createDetail/{id}', [OrderDetailController::class, 'createOrderDetail']);
+Route::get('/order/createDetail/{id}', [OrderDetailController::class, 'createOrderDetail'])->name('createDetail');
 Route::post('/order/updatepayment', [OrderDetailController::class, 'updatePaymentStatus']);
 
 Auth::routes();

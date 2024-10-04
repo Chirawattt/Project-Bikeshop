@@ -96,8 +96,6 @@ class CartController extends Controller
     }
 
     public function finish_order() {
-        $cart_items = Session::get('cart_items');
-        Session::remove('cart_items');
         return redirect('/order/sendorder');
     }
 }

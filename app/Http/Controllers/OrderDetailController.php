@@ -18,7 +18,6 @@ class OrderDetailController extends Controller {
         return view('order/orderDetail', compact('order', 'orderDetails'));
     }
     
-    
     public function createOrderDetail($order_id) {
         $cart_items = Session::get('cart_items');
         foreach($cart_items as $i) {
@@ -44,6 +43,4 @@ class OrderDetailController extends Controller {
         $order->save();
         return redirect()->back()->with('status', true)->with('message', 'ได้แล้วสัส');
     }
-    
-
 }

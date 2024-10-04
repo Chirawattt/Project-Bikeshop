@@ -13,13 +13,8 @@
     <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/toastr/build/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset('https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css') }}">
     {{-- js --}}
-=======
-
-    {{-- JS --}}
->>>>>>> 26c09203bd0ef3488da6ffc5287ea75c7dc52ecf
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/toastr/build/toastr.min.js') }}"></script>
