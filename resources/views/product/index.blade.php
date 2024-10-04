@@ -42,7 +42,7 @@
                         <td> {{ $item->code }} </td>
                         <td> {{ $item->name }} </td>
                         <td> {{ $item->category->name }} </td>
-                        <td> {{ $item->branch->name }} </td>
+                        <td> {{ $item->branch != "" ? $item->branch->name:"" }} </td>
                         <td class="bs_price"> {{ number_format($item->stock_qty, 0) }} </td>
                         <td class="bs_price"> {{ number_format($item->price, 2) }} </td>
                         <td class="bs_center">

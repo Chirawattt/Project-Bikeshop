@@ -64,7 +64,8 @@ Route::get('/order', [OrderController::class, 'index']);
 Route::get('/order/sendorder', [OrderController::class, 'sendorder']);
 
 // Order Detial
-Route::get('/order/index', [OrderDetailController::class, 'index']);
+Route::get('/order/index', [OrderController::class, 'index']);
+Route::get('/order/sendorder', [OrderController::class, 'sendorder']);
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
