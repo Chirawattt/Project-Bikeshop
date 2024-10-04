@@ -6,6 +6,7 @@ use App\Http\Controllers\mainController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\OrderController;
 use App\Models\Order_Detail;
@@ -54,6 +55,9 @@ Route::get('/cart/update/{id}/{qty}', [CartController::class, 'updateCart']);
 Route::get('/cart/checkout', [CartController::class, 'checkout']);
 Route::get('/cart/complete', [CartController::class, 'complete']);
 Route::get('/cart/finish', [CartController::class, 'finish_order']);
+
+// User
+Route::get('/user', [UserController::class, 'index']);
 
 // Order
 Route::get('/order', [OrderController::class, 'index']);

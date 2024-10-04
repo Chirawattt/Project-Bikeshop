@@ -184,16 +184,31 @@ INSERT INTO `product` (`id`, `code`, `name`, `category_id`, `branch_id`, `price`
 -- Table structure for table `users`
 --
 
+--
+-- Table structure for table `users`
+--
+
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `level` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'customer'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `level`) VALUES
+(2, 's6506021611017', 's6506021611017@email.kmutnb.ac.th', NULL, '$2y$10$fRN1PEdoNlAOvBlQNiT36eb7X9Vqt/5GN7WQK/OV7Vc9KsTeOk67G', NULL, '2024-09-26 00:42:02', '2024-09-26 00:42:02', 'customer'),
+(3, 'gerawattt', 'gerawat12369@gmail.com', NULL, '$2y$10$tWjKukkKIkjvtttPtw815eJb88sc1D9HonUPK4ScbKvs89SxO0XBi', '4W1MvUUBKOABTxqO0KufhrLF3KRhEHAw2Koi13FxfwkyPAiaxFDyedDNSZUR', '2024-09-26 00:43:59', '2024-09-26 00:49:18', 'customer'),
+(4, 'admin', 'xibomi@gmail.com', NULL, '$2y$10$Y6nf0.i5ZFNlf1wkeKC9a.XS7ke/qGU9ao.A9KMXVJVMJDIwSCvDi', NULL, '2024-10-03 06:12:41', '2024-10-03 06:12:41', 'admin'),
+(5, 'user2', 'user2@gmail.com', NULL, '$2y$10$X1vdgx3BXRs4wHCyuc7FUuJOM7KwdRjn6zN5vc13aYjbK6Ag8qjAS', NULL, '2024-10-03 06:55:16', '2024-10-03 06:55:16', 'employee');
 
 --
 -- Indexes for dumped tables
