@@ -80,6 +80,9 @@ class CartController extends Controller
         $po_date = date("Y-m-d H:i:s");
         $total_amount = 0;
 
+        $datauser = [$cust_name,$cust_email];
+        Session::put('datauser',$datauser);
+
         foreach($cart_items as $c) { $total_amount += ($c['price'] * $c['qty']);}
 
         $html_output = view('cart/complete', compact('cart_items', 'cust_name', 'cust_email', 'po_no', 'po_date', 'total_amount'))->render();
@@ -95,6 +98,6 @@ class CartController extends Controller
     public function finish_order() {
         $cart_items = Session::get('cart_items');
         Session::remove('cart_items');
-        return redirect('/');
+        return redirect('/order/sendorder');
     }
 }
