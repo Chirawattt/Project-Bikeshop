@@ -27,7 +27,7 @@
                     <td>{{ $e->order_number }}</td>
                     <td>{{ $e->customer_name }}</td>
                     <td>{{ $e->customer_email }}</td>
-                    <td><a href="">รายละเอียด</a></td>
+                    <td><a href="{{ URL::to('/order/'.$e->order_number) }}">รายละเอียด</a></td>
                     <td>
                         @if($e->payment_status == 1)
                             <p style="color:#4ee061;">ชําระเงินแล้ว</p>
