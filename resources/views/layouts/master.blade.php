@@ -35,7 +35,7 @@
             <div class="navbar-header">
                 <a href="/home" class="navbar-brand">BikeShop</a>
             </div>
-            <p class="navbar-text navbar-left">นายจีรวัฒน์ ญานะ 6506021611017</p>
+            
             <div id="navbar" class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
                     @guest
