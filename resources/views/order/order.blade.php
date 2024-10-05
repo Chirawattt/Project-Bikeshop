@@ -13,7 +13,7 @@
             <div class="panel-title"><strong>รายการสั่งซื้อ</strong></div>
         </div>
     </div>
-    <table class="table table-bordered bs_table">
+    <table class="table table-bordered bs_table" style="font-size: 15px">
         <thead>
             <tr>
                 <th class="bs_center">OrderID</th>
@@ -32,20 +32,18 @@
                     <td>{{ $e->customer_name }}</td>
                     <td>{{ substr($e->created_at,0,10) }}</td>
                     <td><a href="{{ URL::to('/order/'.$e->order_number) }}">รายละเอียด</a></td>
-                    <td>
-                        @if($e->payment_status == 1)
-                            <p style="color:#4ee061;">ชําระเงินแล้ว</p>
-                        @endif
-                        @if($e->payment_status == 0)
-                            <p style="color:#ff0000;">ยังไม่ชําระเงิน</p>
-                        @endif
-                    </td>
+                    @if($e->payment_status == 1)
+                        <td style="color: rgb(0, 212, 46); font-weight: 400;">ชําระเงินแล้ว</td>
+                    @else
+                        <td style="color: rgb(238, 0, 0); font-weight: 400;">ยังไม่ชำระเงิน</td>
+                    @endif
                 </tr>
             @endforeach
         </tbody>
-        <tfoot>
-        </tfoot>
     </table>
+    <div class="panel-footer" style="text-align: center">
+        แสดงข้อมูลจำนวน {{ count($order) }} รายการ
+    </div>
 </div>
 <div class="text-center">
     {{ $order->links() }}
