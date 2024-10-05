@@ -68,8 +68,12 @@ class CartController extends Controller
     }
 
     public function checkout() {
-        $cart_items = Session::get('cart_items');
-        return view('cart/checkout', compact('cart_items'));
+        if(Session::get('cart_items')) {
+            $cart_items = Session::get('cart_items');
+            return view('cart/checkout', compact('cart_items'));
+        } else {
+            return redirect('/cart/view');
+        }
     }
 
     public function complete(Request $request) {

@@ -27,6 +27,7 @@
                     <th>รหัส</th>
                     <th>ชื่อผู้ใช้</th>
                     <th>อีเมล</th>
+                    <th>วันที่สร้าง</th>
                     <th>level</th>
                     <th>หน้าที่</th>
                 </tr>
@@ -38,6 +39,7 @@
                         <td> {{ $user->id }} </td>
                         <td> {{ $user->name }} </td>
                         <td> {{ $user->email}} </td>
+                        <td> {{ $user->created_at}} </td>
                         <td> {{ $user->level}} </td>
                         <td class="bs_center">
                             <a href="/user/edit/{{ $user->id }}" class="btn btn-info"><i class="fa fa-edit"></i>
@@ -52,14 +54,10 @@
                     </tr>
                 @endforeach
             </tbody>
-            <tfoot>
-                <tr>
-                    <div class="panel-footer text-center">
-                        แสดงข้อมูลจำนวน {{ count($users) }} รายการ
-                    </div>
-                </tr>
-            </tfoot>
         </table>
+        <div class="panel-footer text-center">
+            แสดงข้อมูลจำนวน {{ count($users) }} รายการ
+        </div>
         <div class="text-center">
             {{ $users->links() }}
         </div>

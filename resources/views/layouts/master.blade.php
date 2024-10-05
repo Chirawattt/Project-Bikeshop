@@ -35,7 +35,7 @@
             <div class="navbar-header">
                 <a href="/home" class="navbar-brand">BikeShop</a>
             </div>
-            <p class="navbar-text navbar-left">นายจีรวัฒน์ ญานะ 6506021611017</p>
+            {{-- <p class="navbar-text navbar-left">นายจีรวัฒน์ ญานะ 6506021611017</p> --}}
             <div id="navbar" class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
                     @guest
@@ -44,14 +44,14 @@
                     @endguest
 
                     @auth
-                        @if (auth()->user()->level == 'admin')
-                            <li><a href="/home">หน้าแรก</a></li>
+                    @if (auth()->user()->level == 'admin')
+                            <li><a href="/product">หน้าแรก</a></li>
                             <li><a href="/product">ข้อมูลสินค้า</a></li>
                             <li><a href="/category">ข้อมูลประเภทสินค้า</a></li>
                             <li><a href="/user">ข้อมูลผู้ใช้</a></li>
                             <li><a href="/logout">ออกจากระบบ</a></li>
                         @elseif (auth()->user()->level == 'employee')
-                            <li><a href="/home">หน้าแรก</a></li>
+                            <li><a href="/product">หน้าแรก</a></li>
                             <li><a href="/product">ข้อมูลสินค้า</a></li>
                             <li><a href="/category">ข้อมูลประเภทสินค้า</a></li>
                             <li><a href="/order">ข้อมูลการสั่งซื้อสินค้า</a></li>
