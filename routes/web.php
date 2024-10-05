@@ -58,6 +58,12 @@ Route::get('/cart/finish', [CartController::class, 'finish_order']);
 
 // User
 Route::get('/user', [UserController::class, 'index']);
+Route::get('/user/search', [UserController::class, 'search']);
+Route::post('/user/search', [UserController::class, 'search']);
+Route::post('/user/insert', [UserController::class, 'insert']);
+Route::get('/user/edit/{id?}', [UserController::class, 'edit']);
+Route::post('/user/update', [UserController::class, 'update']);
+Route::get('/user/remove/{id}', [UserController::class, 'remove']);
 
 // Order
 Route::get('/order', [OrderController::class, 'index']);

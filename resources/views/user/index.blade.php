@@ -8,12 +8,12 @@
         <div class="panel-heading">
             <div style="display: flex; justify-content: space-between; place-items: center">
                 <div class="panel-title"><strong>รายการ</strong></div>
-                <a href="#" class="btn btn-success" style="padding: 8px 16px;">เพิ่มสินค้า</a>
+                <a href="/user/edit" class="btn btn-success" style="padding: 8px 16px;">เพิ่มผู้ใช้</a>
             </div>
         </div>
         <div class="panel-body">
             {{-- search from --}}
-            <form action="#" method="POST" class="form-group">
+            <form action="/user/search" method="POST" class="form-group">
                 @csrf
                 <div class="col-xs-10">
                     <input type="text" name="q" class="form-control" placeholder="ค้นหาสิ่งที่ต้องการ . . .">
@@ -40,13 +40,13 @@
                         <td> {{ $user->email}} </td>
                         <td> {{ $user->level}} </td>
                         <td class="bs_center">
-                            <a href="/product/edit/{{ $user->id }}" class="btn btn-info"><i class="fa fa-edit"></i>
+                            <a href="/user/edit/{{ $user->id }}" class="btn btn-info"><i class="fa fa-edit"></i>
                                 แก้ไข</a>
                             {{-- <a href="#" class="btn btn-danger btn-delete" id-delete="{{ $user->id }}"><i
                                     class="fa fa-trash"></i> ลบ</a> --}}
 
-                            <a href="/product/remove/{{ $user->id }}" class="btn btn-danger btn-delete"
-                                onclick="return confirm('คุณต้องการลบข้อมูลสินค้า {{ $user->name }} ใช่หรือไม่')">
+                            <a href="/user/remove/{{ $user->id }}" class="btn btn-danger btn-delete"
+                                onclick="return confirm('คุณต้องการลบข้อมูลผู้ใช้ {{ $user->name }} ใช่หรือไม่')">
                                 <i class="fa fa-trash"></i> ลบ</a>
                         </td>
                     </tr>
@@ -68,7 +68,7 @@
             // jQuery technique
             $('.btn-delete').on('click', function() {
                 if (confirm('คุณต้องการลบข้อมูลใช่หรือไม่?')) {
-                    var url = "{{ URL::to('product/remove') }}" +
+                    var url = "{{ URL::to('user/remove') }}" +
                         "/" + $(this).attr('id-delete');
                     window.location.href = url;
                 }
