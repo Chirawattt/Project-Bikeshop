@@ -3,6 +3,10 @@
 
 @section('content')
 <h1 class="text-center">รายการสั่งซื้อ</h1>
+<div class="breadcrumb">
+    <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าร้าน</a></li>
+    <li class="active">รายการสั่งซื้อ</li>
+</div>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <div style="display: flex; justify-content: space-between; place-items: center">
