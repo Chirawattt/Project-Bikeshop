@@ -45,18 +45,16 @@
 
                     @auth
                         @if (auth()->user()->level == 'admin')
-                            <li><a href="/product">ข้อมูลสินค้า</a></li>
-                            <li><a href="#">รายการเมนู</a></li>
                             <li><a href="/home">หน้าแรก</a></li>
-                            <li><a href="/category">ประเภทสินค้า</a></li>
+                            <li><a href="/product">ข้อมูลสินค้า</a></li>
+                            <li><a href="/category">ข้อมูลประเภทสินค้า</a></li>
                             <li><a href="/user">ข้อมูลผู้ใช้</a></li>
                             <li><a href="/logout">ออกจากระบบ</a></li>
                         @elseif (auth()->user()->level == 'employee')
-                            <li><a href="/product">ข้อมูลสินค้า</a></li>
-                            <li><a href="#">รายการเมนู</a></li>
                             <li><a href="/home">หน้าแรก</a></li>
-                            <li><a href="/category">ประเภทสินค้า</a></li>
-                            <li><a href="#">ข้อมูลการสั่งซื้อสินค้า</a></li>
+                            <li><a href="/product">ข้อมูลสินค้า</a></li>
+                            <li><a href="/category">ข้อมูลประเภทสินค้า</a></li>
+                            <li><a href="/order">ข้อมูลการสั่งซื้อสินค้า</a></li>
                             <li><a href="/logout">ออกจากระบบ</a></li>
                         @elseif (auth()->user()->level == 'customer')
                             <li>
@@ -72,7 +70,6 @@
                                 </a>
                             </li>
                             <li><a href="#">{{ Auth::user()->name }}</a></li>
-                            <li><a href="/category">รายการเมนู</a></li>
                             <li><a href="/home">หน้าแรก</a></li>
                             <li><a href="/product">ข้อมูลสินค้า</a></li>
                             <li><a href="/logout">ออกจากระบบ</a></li>
