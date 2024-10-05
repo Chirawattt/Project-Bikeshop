@@ -4,10 +4,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Models\Product; 
-
-
+use App\Models\Product;
+use App\Models\Order;
 
 class CartController extends Controller
 {
@@ -84,6 +84,25 @@ class CartController extends Controller
         Session::put('datauser',$datauser);
 
         foreach($cart_items as $c) { $total_amount += ($c['price'] * $c['qty']);}
+
+        //count order
+        $order = Order::latest()->first();
+        if (is_null($order)) {
+            $po_no = $po_no."0001";
+        }
+        else {
+            $firstnumber = substr($order->order_number, 0, 10);
+            $lastnumber = substr($order->order_number, -4);
+            $last4number = substr($order->order_number, -4);
+
+            if ($order->order_number == $po_no.$last4number) {
+                $count_ = Str::padLeft(intval($lastnumber) + 1, 4, '0');
+                $po_no = $firstnumber.$count_;
+            }
+            else{
+                $po_no = $po_no."0001";
+            }
+        }
 
         $html_output = view('cart/complete', compact('cart_items', 'cust_name', 'cust_email', 'po_no', 'po_date', 'total_amount'))->render();
 

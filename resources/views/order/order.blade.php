@@ -5,7 +5,7 @@
 <h1 class="text-center">รายการสั่งซื้อ</h1>
 <div class="breadcrumb">
     <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าร้าน</a></li>
-    <li class="active">คำสั่งซื้อ</li>
+    <li class="active">รายการสั่งซื้อ</li>
 </div>
 <div class="panel panel-primary">
     <div class="panel-heading">
@@ -30,7 +30,7 @@
                     <td>{{ Str::padLeft(intval($e->id),3,'0') }}</td>
                     <td>{{ $e->order_number }}</td>
                     <td>{{ $e->customer_name }}</td>
-                    <td>{{ $e->customer_email }}</td>
+                    <td>{{ substr($e->created_at,0,10) }}</td>
                     <td><a href="{{ URL::to('/order/'.$e->order_number) }}">รายละเอียด</a></td>
                     @if($e->payment_status == 1)
                         <td style="color: rgb(0, 212, 46); font-weight: 400;">ชําระเงินแล้ว</td>
