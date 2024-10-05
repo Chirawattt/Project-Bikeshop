@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">{{ __('เปลี่ยนรหัสผ่าน') }}</div>
 

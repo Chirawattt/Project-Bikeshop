@@ -2,15 +2,15 @@
 @section('title', 'อุปกรณ์จักรยาน, อะไหล่, ชุดแข่ง, และอุปกรณ์ตกแต่ง')
 
 @section('content')
-<h1 class="text-center">รายการสั่งซื้อ</h1>
+<h1 class="text-center">ข้อมูลการสั่งซื้อสินค้า</h1>
 <div class="breadcrumb">
     <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าร้าน</a></li>
-    <li class="active">รายการสั่งซื้อ</li>
+    <li class="active">ข้อมูลการสั่งซื้อสินค้า</li>
 </div>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <div style="display: flex; justify-content: space-between; place-items: center">
-            <div class="panel-title"><strong>รายการสั่งซื้อ</strong></div>
+            <div class="panel-title"><strong>ข้อมูลการสั่งซื้อสินค้า</strong></div>
         </div>
     </div>
     <table class="table table-bordered bs_table" style="font-size: 15px">

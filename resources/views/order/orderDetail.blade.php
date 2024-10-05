@@ -2,18 +2,18 @@
 @section('title', 'อุปกรณ์จักรยาน, อะไหล่, ชุดแข่ง, และอุปกรณ์ตกแต่ง')
 
 @section('content')
-<h1 class="text-center">รายละเอียดการสั่งซื้อ</h1>
+<h1 class="text-center">รายละเอียดการสั่งซื้อสินค้า</h1>
 <div class="breadcrumb">
     <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าร้าน</a></li>
-    <li><a href="{{ URL::to('/order')}}">รายการสั่งซื้อ</a></li>
-    <li class="active">รายละเอียดการสั่งซื้อ  {{$order->order_number}}</li>
+    <li><a href="{{ URL::to('/order')}}">ข้อมูลการสั่งซื้อสินค้า</a></li>
+    <li class="active">รายละเอียดการสั่งซื้อสินค้า {{$order->order_number}}</li>
 </div>
 
 <div class="panel panel-primary">
     <input type="hidden" id="order_id" value="{{$order->id}}">
     <input type="hidden" id="order_number" value="{{$order->order_number}}">
     <div class="panel-heading">
-        <div class="panel-title"><strong>รายละเอียดการสั่งซื้อ</strong></div>
+        <div class="panel-title"><strong>รายละเอียดการสั่งซื้อสินค้า</strong></div>
     </div>
     <table class="table table-bordered bs_table" style="font-size: 15px; border-bottom: 1px solid rgb(226, 226, 226);">
         <thead>
