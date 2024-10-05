@@ -5,7 +5,7 @@
 <h1 class="text-center">รายละเอียดการสั่งซื้อ</h1>
 <div class="breadcrumb">
     <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าร้าน</a></li>
-    <li><a href="{{ URL::to('/order')}}">คำสั่งซื้อ</a></li>
+    <li><a href="{{ URL::to('/order')}}">รายการสั่งซื้อ</a></li>
     <li class="active">รายละเอียดการสั่งซื้อ  {{$order->order_number}}</li>
 </div>
 
