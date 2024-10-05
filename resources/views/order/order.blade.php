@@ -3,13 +3,17 @@
 
 @section('content')
 <h1 class="text-center">รายการสั่งซื้อ</h1>
+<div class="breadcrumb">
+    <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าร้าน</a></li>
+    <li class="active">คำสั่งซื้อ</li>
+</div>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <div style="display: flex; justify-content: space-between; place-items: center">
             <div class="panel-title"><strong>รายการสั่งซื้อ</strong></div>
         </div>
     </div>
-    <table class="table table-bordered bs_table">
+    <table class="table table-bordered bs_table" style="font-size: 15px">
         <thead>
             <tr>
                 <th class="bs_center">OrderID</th>
@@ -28,20 +32,18 @@
                     <td>{{ $e->customer_name }}</td>
                     <td>{{ $e->customer_email }}</td>
                     <td><a href="{{ URL::to('/order/'.$e->order_number) }}">รายละเอียด</a></td>
-                    <td>
-                        @if($e->payment_status == 1)
-                            <p style="color:#4ee061;">ชําระเงินแล้ว</p>
-                        @endif
-                        @if($e->payment_status == 0)
-                            <p style="color:#ff0000;">ยังไม่ชําระเงิน</p>
-                        @endif
-                    </td>
+                    @if($e->payment_status == 1)
+                        <td style="color: rgb(0, 212, 46); font-weight: 400;">ชําระเงินแล้ว</td>
+                    @else
+                        <td style="color: rgb(238, 0, 0); font-weight: 400;">ยังไม่ชำระเงิน</td>
+                    @endif
                 </tr>
             @endforeach
         </tbody>
-        <tfoot>
-        </tfoot>
     </table>
+    <div class="panel-footer" style="text-align: center">
+        แสดงข้อมูลจำนวน {{ count($order) }} รายการ
+    </div>
 </div>
 <div class="text-center">
     {{ $order->links() }}
