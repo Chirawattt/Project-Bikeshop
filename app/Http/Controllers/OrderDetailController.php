@@ -37,10 +37,10 @@ class OrderDetailController extends Controller {
         $order_number = $request->input('order_number');
         $order = Order::where('order_number', $order_number)->first();
         if (!$order) {
-            return redirect()->back()->with('status', false)->with('message', 'ควยไรสัส 2');
+            return redirect()->back()->with('status', false)->with('message', 'ไม่พบสินค้า');
         }
         $order->payment_status = $payment_status;
         $order->save();
-        return redirect()->back()->with('status', true)->with('message', 'ได้แล้วสัส');
+        return redirect()->back()->with('status', true)->with('message', 'อัพเดทข้อมูลการชำระเงิน');
     }
 }
