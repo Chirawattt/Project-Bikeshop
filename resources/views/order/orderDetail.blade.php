@@ -32,7 +32,7 @@
             {{-- <td style="width: 20%">{{ $order->created_at->format('Y/m/d H:i:s') }}</td> --}}
             <td style="width: 20%">{{ $order->created_at->format('Y/m/d') }}</td>
             <td style="width: 20%">
-                <input onchange="test()" type="checkbox" id="payment_status" @if($order->payment_status) checked @endif>
+                <input onchange="updateStatus()" type="checkbox" id="payment_status" @if($order->payment_status) checked @endif>
             </td>
         </tbody>
     </table>
@@ -85,7 +85,7 @@
         });
     })
 
-    function test() {
+    function updateStatus() {
         try {
             let payment = $('#payment_status').is(':checked') ? 1 : 0;
             
@@ -109,6 +109,5 @@
             console.log(err);
         }
     }
-
 </script>
 @endsection
