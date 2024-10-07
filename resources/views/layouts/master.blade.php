@@ -53,7 +53,7 @@
                             <li><a href="/home">หน้าแรก</a></li>
                             <li><a href="/product">ข้อมูลสินค้า</a></li>
                         @endif
-                    @endauth
+                    @endauth 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @guest
