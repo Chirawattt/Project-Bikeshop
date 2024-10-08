@@ -85,26 +85,25 @@
         });
     })
 
-    function updateStatus() {
+    async function updateStatus() {
         try {
             let payment = $('#payment_status').is(':checked') ? 1 : 0;
-            
-            $.ajax({
-                url: "{{ URL::to('/order/updatepayment') }}",
-                type: 'POST',
-                data: {
-                    _token: "{{ csrf_token() }}", // เพิ่ม CSRF token
-                    order_id: $('#order_id').val(),
+
+            const response = await fetch("{{ URL::to('/order/updatepayment') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}" // CSRF token
+                },
+                body: JSON.stringify({
+                    order_id: document.getElementById('order_id').value,
                     payment_status: payment,
-                    order_number: $('#order_number').val()
-                },
-                success: function(response) {
-                    console.log('Payment status updated successfully');
-                },
-                error: function(xhr) {
-                    console.log('Error updating payment status');
-                }
-            });
+                    order_number: document.getElementById('order_number').value
+                })
+            })
+            if (response) {
+                console.log('Payment status has been updated!');
+            }
         } catch(err) {
             console.log(err);
         }
