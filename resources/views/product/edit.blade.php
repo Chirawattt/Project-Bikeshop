@@ -3,11 +3,12 @@
     แก้ไขข้อมูลสินค้า
 @endsection
 @section('content')
-    <h1 class="text-center">แก้ไขสินค้า</h1>
-    <ul class="breadcrumb">
-        <li><a href="/product">หน้าแรก</a></li>
-        <li class="active">แก้ไขสินค้า</li>
-    </ul>
+    <h1 class="text-center">แก้ไขข้อมูลสินค้า</h1>
+    <div class="breadcrumb">
+        <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าแรก</a></li>
+        <li><a href="{{ URL::to('product') }}">ข้อมูลสินค้า</a></li>
+        <li class="active">แก้ไขข้อมูลสินค้า</li>
+    </div>
     @if ($errors->any())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)

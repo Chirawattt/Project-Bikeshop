@@ -4,6 +4,10 @@
 @endsection
 @section('content')
     <h1 class="text-center">ประเภทสินค้าทั้งหมด</h1>
+    <div class="breadcrumb">
+        <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าแรก</a></li>
+        <li class="active">ข้อมูลประเภทสินค้า</li>
+    </div>
     <div class="panel panel-primary">
         <div class="panel-heading">
             <div style="display: flex; justify-content: space-between; place-items: center">

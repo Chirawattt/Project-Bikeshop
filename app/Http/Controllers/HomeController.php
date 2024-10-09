@@ -19,20 +19,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        // ตรวจสอบว่ามีผู้ใช้เข้าสู่ระบบหรือไม่
-        if (Auth::check()) {
-            $user = Auth::user();
-            if ($user->level == 'admin' || $user->level == 'employee') {
-                return redirect('/product');
-            } else {
-                return view('home');
-            }
-        } else {
-            // ถ้าไม่ได้เข้าสู่ระบบ ให้เปลี่ยนเส้นทางไปที่หน้า login
-            return view('home');
-        }
+    public function index() {
+        // if (Auth::check()) {
+        //     $user = Auth::user();
+        //     if ($user->level == 'admin' || $user->level == 'employee') {
+        //         return redirect('/product');
+        //     } else {
+        //         return view('home');
+        //     }
+        // } else {
+        //     return view('home');
+        // }
+
+        return view('home');
     }
 
     public function logout() {
