@@ -34,8 +34,7 @@ class OrderDetailController extends Controller {
     public function updatePaymentStatus(Request $request) {
         $order_id = $request->input('order_id');
         $payment_status = $request->input('payment_status');
-        $order_number = $request->input('order_number');
-        $order = Order::where('order_number', $order_number)->first();
+        $order = Order::find($order_id);
         if (!$order) {
             return redirect()->back()->with('status', false)->with('message', 'ไม่พบสินค้า');
         }

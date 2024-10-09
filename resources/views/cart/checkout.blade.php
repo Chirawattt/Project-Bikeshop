@@ -3,7 +3,7 @@
     <h1 class="text-center">ชำระเงิน</h1>
     
     <div class="breadcrumb">
-        <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าร้าน</a></li>
+        <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าแรก</a></li>
         <li><a href="{{ URL::to('cart/view')}}">สินค้าในตะกร้า</a></li>
         <li class="active">ชำระเงิน</li>
     </div>

@@ -5,7 +5,7 @@
     <div class="container">
         <h1 class="text-center">สินค้าในตะกร้า</h1>
         <div class="breadcrumb">
-            <li><a href="{{ URL::to('home')}}"><i class="fa fa-home"> หน้าร้าน</i></a></li>
+            <li><a href="{{ URL::to('home')}}"><i class="fa fa-home"> หน้าแรก</i></a></li>
             <li class="active">สินค้าในตะกร้า</li>
         </div>
     </div>

@@ -3,11 +3,12 @@
     แก้ไขข้อมูลผู้ใช้
 @endsection
 @section('content')
-    <h1 class="text-center">แก้ไขผู้ใช้</h1>
-    <ul class="breadcrumb">
-        <li><a href="/user">หน้าแรก</a></li>
-        <li class="active">แก้ไขผู้ใช้</li>
-    </ul>
+    <h1 class="text-center">แก้ไขข้อมูลผู้ใช้</h1>
+    <div class="breadcrumb">
+        <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าแรก</a></li>
+        <li><a href="{{ URL::to('user') }}">ข้อมูลผู้ใช้</a></li>
+        <li class="active">แก้ไขข้อมูลผู้ใช้</li>
+    </div>
     @if ($errors->any())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)

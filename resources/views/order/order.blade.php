@@ -4,7 +4,7 @@
 @section('content')
 <h1 class="text-center">ข้อมูลการสั่งซื้อสินค้า</h1>
 <div class="breadcrumb">
-    <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าร้าน</a></li>
+    <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าแรก</a></li>
     <li class="active">ข้อมูลการสั่งซื้อสินค้า</li>
 </div>
 <div class="panel panel-primary">

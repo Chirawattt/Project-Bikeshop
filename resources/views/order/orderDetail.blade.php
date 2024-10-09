@@ -4,7 +4,7 @@
 @section('content')
 <h1 class="text-center">รายละเอียดการสั่งซื้อสินค้า</h1>
 <div class="breadcrumb">
-    <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าร้าน</a></li>
+    <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าแรก</a></li>
     <li><a href="{{ URL::to('/order')}}">ข้อมูลการสั่งซื้อสินค้า</a></li>
     <li class="active">รายละเอียดการสั่งซื้อสินค้า {{$order->order_number}}</li>
 </div>
@@ -97,8 +97,8 @@
                 },
                 body: JSON.stringify({
                     order_id: document.getElementById('order_id').value,
-                    payment_status: payment,
-                    order_number: document.getElementById('order_number').value
+                    payment_status: payment
+                    // order_number: document.getElementById('order_number').value
                 })
             })
             if (response) {

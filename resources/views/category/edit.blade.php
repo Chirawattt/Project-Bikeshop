@@ -4,11 +4,11 @@
 @endsection
 @section('content')
     <h1 class="text-center">แก้ไขประเภทสินค้า</h1>
-    <ul class="breadcrumb">
-        <li><a href="/product">หน้าแรก</a></li>
-        <li><a href="/category">ประเภทสินค้าทั้งหมด</a></li>
+    <div class="breadcrumb">
+        <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าแรก</a></li>
+        <li><a href="{{ URL::to('category') }}">ข้อมูลประเภทสินค้า</a></li>
         <li class="active">แก้ไขประเภทสินค้า</li>
-    </ul>
+    </div>
     @if ($errors->any())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)

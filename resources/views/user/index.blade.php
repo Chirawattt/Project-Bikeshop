@@ -1,9 +1,13 @@
 @extends('layouts.master')
 @section('title')
-    รายการชื่อ user
+    ข้อมูลผู้ใช้ทั้งหมด
 @endsection
 @section('content')
-    <h1 class="text-center">รายชื่อ user ทั้งหมด</h1>
+    <h1 class="text-center">ข้อมูลผู้ใช้ทั้งหมด</h1>
+    <div class="breadcrumb">
+        <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าแรก</a></li>
+        <li class="active">ข้อมูลผู้ใช้</li>
+    </div>
     <div class="panel panel-primary">
         <div class="panel-heading">
             <div style="display: flex; justify-content: space-between; place-items: center">
