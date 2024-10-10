@@ -103,6 +103,7 @@
             })
             if (response) {
                 console.log('Payment status has been updated!');
+                window.location.href = '/order';
             }
         } catch(err) {
             console.log(err);

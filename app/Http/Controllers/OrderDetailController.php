@@ -40,6 +40,6 @@ class OrderDetailController extends Controller {
         }
         $order->payment_status = $payment_status;
         $order->save();
-        return redirect()->back()->with('status', true)->with('message', 'อัพเดทข้อมูลการชำระเงิน');
+        return redirect('/order')->with('status', true)->with('message', 'อัพเดทข้อมูลการชำระเงิน');
     }
 }
